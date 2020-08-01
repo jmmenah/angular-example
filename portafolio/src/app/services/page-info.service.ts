@@ -11,10 +11,9 @@ export class PageInfoService {
   charged = false;
 
   constructor( private http: HttpClient) {
-    // console.log('InfoPage works!');
 
     // read JSON
-    this.http.get('assets/data/data-page.json').subscribe( resp: PageInfo => {
+    this.http.get('assets/data/data-page.json').subscribe( (resp: PageInfo) => {
 
       this.charged = true;
       this.info = resp;

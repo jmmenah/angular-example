@@ -2,10 +2,10 @@
     "title":"Juanma Portfolio",
     "email":"jmmenah@gmail.com",
     "shortname":"Juanma",
-    "authorpage":"google.es",
-    "facebook":"facebook.com",
-    "twitter":"twitter.com",
-    "instagram":"instragram.com",
-    "tumblr":"tumblr.com",
+    "authorpage":"https://google.es",
+    "facebook":"https://facebook.com",
+    "twitter":"https://twitter.com",
+    "instagram":"https://instragram.com",
+    "tumblr":"https://tumblr.com",
     "workteam":[]
 }
