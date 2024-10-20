@@ -20,7 +20,7 @@ export class ProductosService {
 
   private loadProducts(): any{
 
-    return new Promise( ( resolve, reject ) => {
+    return new Promise<void>( ( resolve, reject ) => {
 
       this.http.get('https://angular-example-273fa.firebaseio.com/productos_idx.json').subscribe( (resp: Product[]) => {
 
