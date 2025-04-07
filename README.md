@@ -1,6 +1,16 @@
 # Portafolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+## About This Project
+
+Welcome to the **Portafolio** project! 🎨 This is a modern, responsive, and feature-rich portfolio application built with [Angular](https://angular.io/). Whether you're showcasing your work, skills, or projects, this application is designed to make your portfolio stand out.
+
+### Key Features
+- **Responsive Design**: Optimized for all devices, from desktops to mobile phones.
+- **Dynamic Content**: Easily update and manage your portfolio items.
+- **Angular-Powered**: Built with the robust Angular framework for a seamless user experience.
+- **Customizable**: Tailor the design and functionality to suit your personal or professional needs.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5. 🚀
 
 ## Development server
 
