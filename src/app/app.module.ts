@@ -13,18 +13,16 @@ import { ItemComponent } from './pages/item/item.component';
 import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
     AppComponent,
     HeaderComponent,
     FooterComponent,
     PortafolioComponent,
     AboutComponent,
     ItemComponent,
-    SearchComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
+    SearchComponent,
     HttpClientModule
   ],
   providers: [],
