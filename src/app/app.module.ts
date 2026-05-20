@@ -26,6 +26,5 @@ import { SearchComponent } from './pages/search/search.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }

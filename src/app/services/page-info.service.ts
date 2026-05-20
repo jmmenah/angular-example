@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { PageInfo } from '../interfaces/pageInfo.interface';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class PageInfoService {
 
   team: any[] = [];
 
-  constructor( private http: HttpClient) {
+  constructor() {
 
     this.loadInfo();
     this.loadTeam();
@@ -21,21 +20,16 @@ export class PageInfoService {
    }
 
   private loadInfo() {
+    const data = (window as any).portafolioData;
 
-    this.http.get('assets/data/data-page.json').subscribe( (resp: PageInfo) => {
-
-      this.charged = true;
-      this.info = resp;
-
-    });
+    this.info = data.pageInfo as PageInfo;
+    this.charged = true;
   }
 
   private loadTeam(){
-    this.http.get('https://angular-example-273fa.firebaseio.com/equipo.json').subscribe( (resp: any) => {
+    const data = (window as any).portafolioData;
 
-      this.team = resp;
-
-    });
+    this.team = data.team || [];
 
   }
 }

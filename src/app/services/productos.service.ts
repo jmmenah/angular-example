@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Product } from '../interfaces/product.interface';
+import { FullProduct } from '../interfaces/full-product.interface';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ProductosService {
   product: Product[] = [];
   productSearch: Product[] = [];
 
-  constructor( private http: HttpClient) {
+  constructor() {
 
     this.loadProducts();
 
@@ -22,13 +23,11 @@ export class ProductosService {
 
     return new Promise<void>( ( resolve, reject ) => {
 
-      this.http.get('https://angular-example-273fa.firebaseio.com/productos_idx.json').subscribe( (resp: Product[]) => {
+      const data = (window as any).portafolioData;
 
-        this.product = resp;
-        this.loading = false;
-        resolve();
-
-      });
+      this.product = data.products as Product[];
+      this.loading = false;
+      resolve();
 
     });
 
@@ -37,7 +36,9 @@ export class ProductosService {
 
   getProduct(id: string): any{
 
-    return this.http.get(`https://angular-example-273fa.firebaseio.com/productos/${ id }.json`);
+    const data = (window as any).portafolioData;
+
+    return of(data.fullProducts[id] as FullProduct);
 
   }
 

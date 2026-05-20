@@ -1,34 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ProductosService } from '../../services/productos.service';
 import { FullProduct } from '../../interfaces/full-product.interface';
-import { Product } from '../../interfaces/product.interface';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class ItemComponent implements OnInit {
 
-  product: FullProduct;
-  id: string;
+  product: FullProduct | null = null;
+  id = '';
 
-  constructor( private route: ActivatedRoute,
-               public productService: ProductosService ) { }
+  constructor( private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe( parameters => {
+    const parameters = this.route.snapshot.params;
+    const data = (window as any).portafolioData;
 
-      // console.log(parameters['id']);
-      this.productService.getProduct(parameters.id).subscribe( (product: FullProduct) => {
-
-        this.id = parameters.id;
-        this.product = product;
-
-       } );
-
-    } );
+    this.id = parameters.id;
+    this.product = data?.fullProducts?.[parameters.id] || null;
   }
 
 }
